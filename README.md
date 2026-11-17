@@ -45,27 +45,26 @@ Para volver al estado inicial después de las pruebas hay que borrar la base
   pueden ejecutar más de una vez.
 
 ## Video de la demo
-El video (hasta 25 minutos) muestra el sistema funcionando en SQL Server Management Studio, con casos de éxito
-y de validación. Cada integrante graba y explica una parte:
+El video (hasta 25 minutos) muestra el sistema funcionando en el cliente de base de datos (SQL Server Management Studio y
+VS Code), con casos de éxito y de validación. Lo graban y explican los dos integrantes que siguieron en el trabajo, cada
+uno su parte:
 
-| Integrante | Qué muestra | Tiempo |
-|---|---|---|
-| Sackmann, Francisco | Presentación del equipo y del sistema, el DER y las tablas con los datos de ejemplo | 4:30 |
-| Migliore, Lucas | Funciones, vistas y procedimientos (detalle abajo) | 10:30 |
-| Cristiani, Francisco | Los 3 triggers (detalle abajo) | 6:00 |
-| Todos | Cierre: resumen y repositorio | 1:00 |
+| Integrante | Qué muestra |
+|---|---|
+| Sackmann, Francisco | Presentación del equipo y del sistema, el DER, las tablas con los datos de ejemplo, y las funciones y vistas |
+| Cristiani, Francisco | Los 3 procedimientos almacenados y los 3 triggers |
 
-**Migliore, Lucas**
+**Sackmann, Francisco**
 - Funciones: `FN_EdadMascota` (con la fecha de referencia y el caso del cumpleaños) y `FN_ImporteMedicamentos`.
 - Vistas: `VW_TurnosPendientes`, `VW_HistorialClinico` (usa `FN_EdadMascota`), `VW_FacturacionPorVeterinario`
   (usa `FN_ImporteMedicamentos`) y `VW_StockMedicamentos`.
+
+**Cristiani, Francisco**
 - Procedimientos: `SP_ReporteConsultasPorVeterinario` con los parámetros visibles (caso correcto y casos con error),
   `SP_RegistrarConsulta` (el turno pasa a Atendido y aparece la consulta) y `SP_AgregarMedicamentoAConsulta`
   (stock antes y después, y el caso sin stock suficiente).
-
-**Cristiani, Francisco**
-- `TR_DescontarStockMedicamento`: un INSERT con más cantidad que el stock se rechaza y el stock no cambia.
 - `TR_ValidarTurno`: un turno válido y los casos que rechaza (mascota o veterinario inactivo, fecha pasada,
   veterinario ocupado y mascota con otro turno el mismo día).
+- `TR_DescontarStockMedicamento`: un INSERT con más cantidad que el stock se rechaza y el stock no cambia.
 - `TR_AnularConsulta`: un DELETE sobre una consulta, mostrando antes y después la consulta, el detalle, el stock y
   el estado del turno.
