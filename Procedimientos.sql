@@ -79,7 +79,7 @@ GO
    Registra la consulta de un turno pendiente y pasa el turno a
    Atendido. Las dos acciones se hacen juntas en una transacción:
    o se hacen las dos o no se hace ninguna.
-   Ejemplo: EXEC SP_RegistrarConsulta 31, 'Control sin novedades', NULL, 9500;
+   Ejemplo: EXEC SP_RegistrarConsulta 27, 'Control sin novedades', NULL, 9500;
    ------------------------------------------------------------ */
 CREATE OR ALTER PROCEDURE SP_RegistrarConsulta
     @IDTurno INT,
